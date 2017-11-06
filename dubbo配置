@@ -1,0 +1,6 @@
+<!-- 提供方应用信息，用于计算依赖关系 -->
+<dubbo:application name="${APPLICATION_NAME}" />
+<dubbo:provider contextpath="${WEB_ROOT_PATH}dubbo" timeout="20000" server="servlet" cluster="failfast"/>
+<dubbo:registry address="${REGISTRY_ADDRESS}" file="${dubbo.registry.file}" client="apacheCurator"/>
+<dubbo:protocol name="hessian" port="${APPLICATION_PORT}" /> 
+<dubbo:annotation package="com.pn.p01.capital.provider.impl" />
