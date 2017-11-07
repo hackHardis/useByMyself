@@ -4,13 +4,13 @@
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="distributedSessionFilter"
-		class="com.pn.px.commons.web.session.DistributedSessionFilter">
+		class="xxx.session.DistributedSessionFilter">
 		<property name="distributedSessionManager">
-			<bean class="com.pn.px.commons.web.session.DefaultDistributedSessionManager">
+			<bean class="xxx.session.DefaultDistributedSessionManager">
 				<property name="applicationCode" value="${APPLICATION_NAME}"></property>
 				<property name="distributedSessionDao">
 					<bean id="springDataRedisSessionDao"
-						  class="com.pn.px.commons.web.session.SpringDataRedisSessionDao">
+						  class="xxx.session.SpringDataRedisSessionDao">
 						<property name="redisTemplate" ref="springSessionDaoRedisTemplate"></property>
 						<property name="serializer" ref="serializer"/>
 
@@ -41,7 +41,7 @@
 		<property name="connectionFactory" ref="springSessionDaoConnectionFactory"></property>
 	</bean>
 
-	<bean id="redisCache" class="com.pn.px.commons.cache.redis.SpringRedisTemplateCache">
+	<bean id="redisCache" class="xxx.cache.redis.SpringRedisTemplateCache">
 		<property name="redisTemplate" ref="springSessionDaoRedisTemplate"/>
 	</bean>
 </beans> 
