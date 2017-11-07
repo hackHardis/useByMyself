@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<sitemesh xmlns="http://sitemesh.org/xml/config" 
+	xsi:schemaLocation="http://sitemesh.org/xml/config /WEB-INF/sitemesh3.xsd">
+    
+    <!--默认情况下，sitemesh 只对 HTTP 响应头中 Content-Type 为 text/html 的类型进行拦截和装饰，可以添加更多的 mime 类型-->  
+    <mime-type>text/html</mime-type>  
+    <mime-type>application/vnd.wap.xhtml+xml</mime-type>  
+    <mime-type>application/xhtml+xml</mime-type>  
+  
+    <!-- 不被sitemesh装饰的路径 -->  
+    <mapping path="/static/*" exclue="true"/>
+    <mapping path="/400" exclue="true"/>
+
+    <!-- 全局默认装饰器   -->
+    <mapping>
+        <path>/a</path>
+        <decorator>/WEB-INF/view/layout/a1.jsp</decorator>
+        <decorator>/WEB-INF/view/layout/decorator.jsp</decorator>
+    </mapping>
+    <mapping>
+        <path>/a/*</path>
+        <decorator>/WEB-INF/view/layout/a1.jsp</decorator>
+        <decorator>/WEB-INF/view/layout/decorator.jsp</decorator>
+    </mapping>
+
+    <mapping path="/x/x1/*" decorator="/WEB-INF/view/layout/xTemplate.jsp"/>
+  
+    <!-- 同时使用多个装饰器 
+    <mapping path="/vv*">  
+        <decorator>/WEB-INF/decorator/decorator.jsp</decorator>  
+        <decorator>/WEB-INF/decorator/decorator2.jsp</decorator>  
+    </mapping>  -->  
+  
+    <!-- 多个地址使用同一个装饰器  
+    <mapping path="/index.jsp" decorator="/WEB-INF/decorator/decorator2.jsp"/>  
+    <mapping path="/index.jsp" decorator="/WEB-INF/decorator/decorator3.jsp"/> -->  
+    
+    <content-processor>
+    	<tag-rule-bundle class="xxx.utils.xxxHtmlTagRulebundle"/>
+    </content-processor>
+    
+</sitemesh>  
