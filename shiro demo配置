@@ -3,19 +3,19 @@
 	   xmlns="http://www.springframework.org/schema/beans"
 	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="serializer" class="com.pn.px.commons.codec.io.JavaObjectSerializer"/>
+	<bean id="serializer" class="xxx.codec.io.JavaObjectSerializer"/>
 	<bean id="onlineUserStatListener" class="com.pn.p01.portal.listener.OnlineUserStatListener">
 		<property name="serializer" ref="serializer"/>
 		<property name="redisCache" ref="redisCache"/>
 	</bean>
-	<bean id="securityManager" class="com.pn.px.commons.web.filter.shiro.AgSecurityManager">
+	<bean id="securityManager" class="xxx.web.filter.shiro.AgSecurityManager">
 		<property name="realm">
-			<bean class="com.pn.px.commons.web.filter.shiro.DefaultAuthenticatingRealm"/>
+			<bean class="xxx.web.filter.shiro.DefaultAuthenticatingRealm"/>
 		</property>
 		<property name="listener" ref="onlineUserStatListener"/>
 	</bean>
 
-	<bean id="kickoutSessionControlFilter" class="com.pn.p01.portal.shiro.filter.KickoutSessionControlFilter">
+	<bean id="kickoutSessionControlFilter" class="xxx.shiro.filter.KickoutSessionControlFilter">
 		<property name="kickoutUrl" value="/login?kickout=1"/>
 	</bean>
 
@@ -26,7 +26,7 @@
 		<property name="filters">
 			<map>
 				<!--<entry key="authc">-->
-					<!--<bean class="com.pn.px.commons.web.filter.shiro.DefaultAuthenticationFilter" />-->
+					<!--<bean class="xxx.web.filter.shiro.DefaultAuthenticationFilter" />-->
 				<!--</entry>-->
 				<entry key="kickout" value-ref="kickoutSessionControlFilter"/>
                 <entry key="authc">
@@ -41,34 +41,11 @@
 		<property name="filterChainDefinitions">
 			<value>
 				/logout = logout
-				/game/show/lobby* = kickout,authc
-				/game/load/agstar* = kickout,authc
-				/game/load/agtlb* = kickout,authc,roles[customer:customer:type:1]
-				/game/load/bbin* = kickout,authc,roles[customer:customer:type:1]
-				/game/load/sport* = kickout,authc,roles[customer:customer:type:1]
-				/game/play/agstar* = kickout,authc
-				/game/play/agtlb* = kickout,authc,roles[customer:customer:type:1]
-				/game/play/bbin* = kickout,authc,roles[customer:customer:type:1]
-				/game/play/sports* = kickout,authc,roles[customer:customer:type:1]
-				/ag_casino* = kickout,authc,roles[customer:customer:type:1]
-				/ag_flagship* = kickout,authc,roles[customer:customer:type:1]
-				/check/phone/verify* = kickout,authc
-				/game/load/agin* = kickout,authc
-				/game/load/aglive* = kickout,authc
-				/game/load/agq* = kickout,authc
-				/game/load/fish* = kickout,authc
-				/game/play/agin* = kickout,authc
-				/game/play/aglive* = kickout,authc
-				/game/play/agq* = kickout,authc
-				/game/play/fish* = kickout,authc
-				/game/show/lobby* = kickout,authc
-				/register/real/basic/success* = kickout,authc
-				/register/real/fast/success* = kickout,authc
-				/register/real/success* = kickout,authc
-				/register/trial/basic/success* = kickout,authc
-                /ucenter/account/credit/refresh = kickout,authc
-                /ucenter/** = kickout,authc,roles[customer:customer:type:1]
-                /ucenterajx/** = kickout,authc,roles[customer:customer:type:1]
+				/xxx/show/lobby* = kickout,authc
+				/xxx/load/agstar* = kickout,authc
+				/xxx/load/agtlb* = kickout,authc,roles[customer:customer:type:1]
+				/xxx/load/bbin* = kickout,authc,roles[customer:customer:type:1]
+				/check/phone/verify* = kickout,authc1]
 				<!--/** = anon-->
 			</value>
 		</property>
