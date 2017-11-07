@@ -1,0 +1,24 @@
+<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/public/jsp/"/>
+		<property name="order" value="0"/>
+		<property name="viewNames">
+			<array>
+				<value>400</value>
+				<value>401</value>
+				<value>403</value>
+				<value>404</value>
+				<value>500</value>
+				<value>502</value>
+			</array>
+
+		</property>
+
+		<property name="suffix" value=".jsp"/>
+        <property name="attributesMap">
+            <map>
+                <entry key="static_url" value="${static.url}"/>
+                ...
+            </map>
+        </property>
+    </bean>
