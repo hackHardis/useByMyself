@@ -1,0 +1,22 @@
+public class FooterStaticTagRulebundle implements TagRuleBundle {
+
+	/* (non-Javadoc)
+	 * @see org.sitemesh.content.tagrules.TagRuleBundle#install(org.sitemesh.tagprocessor.State, org.sitemesh.content.ContentProperty, org.sitemesh.SiteMeshContext)
+	 */
+	@Override
+	public void install(State defaultState, ContentProperty contentProperty, SiteMeshContext siteMeshContext) {
+		// TODO Auto-generated method stub
+		TagRule rule = new ExportTagToContentRule(siteMeshContext, contentProperty.getChild("footerStatic"), false);
+		defaultState.addRule("footerStatic", rule);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.sitemesh.content.tagrules.TagRuleBundle#cleanUp(org.sitemesh.tagprocessor.State, org.sitemesh.content.ContentProperty, org.sitemesh.SiteMeshContext)
+	 */
+	@Override
+	public void cleanUp(State defaultState, ContentProperty contentProperty, SiteMeshContext siteMeshContext) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
