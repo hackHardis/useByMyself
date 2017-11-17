@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="properties/jdbc.properties"/>
+    <!-- classPathEntry:数据库的JDBC驱动 -->
+    <!-- oracle
+    <classPathEntry location="C:\Users\barden\.m2\repository\com\oracle\ojdbc6\11.2.0.1.0\ojdbc6-11.2.0.1.0.jar"/>
+     -->
+    <!-- mysql-->
+    <!--<classPathEntry-->
+            <!--location="C:\Users\barden\.m3\repository\mysql\mysql-connector-java\5.1.29\mysql-connector-java-5.1.29.jar"/>-->
+    <context id="OracleTables" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <property name="beginningDelimiter" value="`"/>
+
+        <property name="autoDelimitKeywords" value="`"/>
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.luckcat.crontab.support.MyBaseMapper"/>
+        </plugin>
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+
+        <!-- 去除自动生成的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!-- oracle -->
+        <jdbcConnection driverClass="${jdbc.driver}"
+                        connectionURL="${jdbc.url}"
+                        userId="${jdbc.username}"
+                        password="${jdbc.password}"/>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetProject:自动生成代码的位置 -->
+        <javaModelGenerator targetPackage="com.luckcat.crontab.entity" targetProject="${targetJavaProject}"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="${targetResourcesProject}"/>
+
+        <javaClientGenerator targetPackage="com.luckcat.crontab.dao" targetProject="${targetJavaProject}"
+                             type="XMLMAPPER"/>
+
+
+        <!-- tableName:用于自动生成代码的数据库表；domainObjectName:对应于数据库表的javaBean类名 -->
+        <table mapperName="ProductTransDao" tableName="t_product_trans"
+               domainObjectName="ProductTransEntity"></table>
+
+    </context>
+
+
+</generatorConfiguration>
