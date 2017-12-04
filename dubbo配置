@@ -12,3 +12,9 @@ APPLICATION_PORT=60020
 #APPLICATION_PORT=60000
 dubbo.registry.file=./.dubbo/${APPLICATION_NAME}/dubbo-registry.cache
 WEB_ROOT_PATH=
+
+
+<dubbo:application name="${APPLICATION_NAME}" />
+<dubbo:registry address="${REGISTRY_ADDRESS}" file="${dubbo.registry.file}" client="apacheCurator"/>
+<dubbo:consumer check="false"/>
+<dubbo:annotation package="*.*.impl"/>
