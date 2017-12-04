@@ -4,3 +4,11 @@
 <dubbo:registry address="${REGISTRY_ADDRESS}" file="${dubbo.registry.file}" client="apacheCurator"/>
 <dubbo:protocol name="hessian" port="${APPLICATION_PORT}" /> 
 <dubbo:annotation package="com.pn.p01.capital.provider.impl" />
+
+
+REGISTRY_ADDRESS=zookeeper://*.*.*.*:2181?backup=*.*.*.*:2182,*.*.*.*:2183
+APPLICATION_NAME=*
+APPLICATION_PORT=60020
+#APPLICATION_PORT=60000
+dubbo.registry.file=./.dubbo/${APPLICATION_NAME}/dubbo-registry.cache
+WEB_ROOT_PATH=
