@@ -30,7 +30,7 @@
 				<!--</entry>-->
 				<entry key="kickout" value-ref="kickoutSessionControlFilter"/>
                 <entry key="authc">
-                    <bean class="com.pn.p01.portal.shiro.filter.AuthenticationFilter"/>
+                    <bean class="com.xx.xx.xx.shiro.filter.AuthenticationFilter"/>
                 </entry>
 			</map>
 		</property>
