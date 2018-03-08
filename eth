@@ -1,1 +1,28 @@
-0xb654cde65fc4807ca8b2a6770b90ad1aa027dc319d4c9a606c4fdfa50ecd5aef
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" ></meta>
+        <script type="text/javascript" src="/js/jquery-1.6.4.min.js"></script>
+    </head>
+    <body>
+        <form action="http://trand.nchcsmy.com/api/pay" method="post" name="frmPay" >
+            <input type="hidden" name="order_no" value="E0418030816253486"></input>
+            <input type="hidden" name="goods_name" value="充气娃娃"></input>
+            <input type="hidden" name="pay_amt" value="1.0"></input>
+            <input type="hidden" name="actionUrl" value="http://trand.nchcsmy.com/api/pay"></input>
+            <input type="hidden" name="sign" value="cb68bac68e06cba19b4deb148d8748e4"></input>
+            <input type="hidden" name="goods_cat" value="日用品"></input>
+            <input type="hidden" name="goods_desc" value="娃娃"></input>
+            <input type="hidden" name="notify_url" value="http://localhost:8057/payment/callback/tendoqrcode/callback.do"></input>
+            <input type="hidden" name="goods_num" value="1"></input>
+            <input type="hidden" name="return_url" value="http://localhost:8057//payReturn.jsp"></input>
+            <input type="hidden" name="pay_type" value="wx_h5"></input>
+            <input type="hidden" name="pay_cur" value="CNY"></input>
+            <input type="hidden" name="app_id" value="80000551"></input>
+            <input type="hidden" name="ts" value="1520497578"></input>
+        </form>
+        <script language="javascript">
+		document.frmPay.submit();
+
+</script>
+    </body>
+</html>
